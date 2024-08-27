@@ -91,7 +91,6 @@ namespace EV_HACIENDA.Controllers
                 NumeroConsecutivo = NuevoConsecutivo,
                 FechaEmision = DateTime.Now,
                 ReceptorId = model.ReceptorId,
-                ResumenFacturaId = 1,
                 EstadoEnvio = "Sin Procesa",
                 EmisorId = 1 
             };
