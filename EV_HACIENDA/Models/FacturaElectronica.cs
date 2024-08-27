@@ -14,7 +14,7 @@ namespace EV_HACIENDA.Models
         public DateTime FechaEmision { get; set; }
         public int EmisorId { get; set; }
         public int ReceptorId { get; set; }
-        public int ResumenFacturaId { get; set; }
+        public int ResumenFacturaId { get; set; } = "1";
         public string EstadoEnvio { get; set; }
 
         [ForeignKey(nameof(EmisorId))]
