@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Nueva Factura</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Nueva Factura</h1>
+        <form id="frmFacturar" method="post" asp-controller="FacturaElectronica" asp-action="Create">
+
+            @Html.AntiForgeryToken()
+
+            <!-- Encabezado -->
+            <div class="card mb-3">
+                <div class="card-header bg-info text-white">Encabezado</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="clave">Clave</label>
+                        <input type="text" class="form-control" id="clave" name="Clave" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_cliente">Cliente</label>
+                        <select class="form-control" id="id_cliente" name="ReceptorId" required>
+                            <option value="">Seleccione Cliente</option>
+                            <option value="1">Receptor 1</option>
+                            <option value="2">Receptor 2</option>
+                            <option value="3">Receptor 3</option>
+                            <option value="4">Receptor 4</option>
+                            <option value="5">Receptor 5</option>
+                            <option value="6">Receptor 6</option>
+                            <option value="7">Receptor 7</option>
+                            <option value="8">Receptor 8</option>
+                            <option value="9">Receptor 9</option>
+                            <option value="10">Receptor 10</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detalles -->
+            <div class="card mb-3">
+                <div class="card-header bg-info text-white">
+                    Detalles del Documento
+                    <button type="button" class="btn btn-secondary btn-sm float-right" id="addRow">
+                        <i class="fas fa-plus"></i> Nueva Línea
+                    </button>
+                
+                    <button type="submit" class="btn btn-success float-right">Guardar</button>
+                   
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Detalle</th>
+                                    <th>Precio Unitario</th>
+                                    <th>Monto Total</th>
+                                    <th>Cantidad</th>
+                                    <th>Monto Descuento</th>
+                                    <th>Subtotal</th>
+                                    <th>Monto Total Línea</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody id="detailsTable">
+                                <tr>
+                                    <td><input type="text" class="form-control" name="LineasDetalles[0].Detalle"></td>
+                                    <td><input type="number" class="form-control" name="LineasDetalles[0].PrecioUnitario" min="0"></td>
+                                    <td><input type="number" class="form-control" name="LineasDetalles[0].MontoTotal" readonly></td>
+                                    <td><input type="number" class="form-control cantidad calcular" name="LineasDetalles[0].Cantidad" min="1"></td>
+                                    <td><input type="number" class="form-control" name="LineasDetalles[0].MontoDescuento" readonly></td>
+                                    <td><input type="number" class="form-control" name="LineasDetalles[0].SubTotal" readonly></td>
+                                    <td><input type="number" class="form-control" name="LineasDetalles[0].MontoTotalLinea" readonly></td>
+                                    <td><button type="button" class="btn btn-danger btn-sm removeRow"><i class="fas fa-times"></i></button></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6" class="text-right">Neto</td>
+                                    <td id="neto">0</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="text-right">Descuentos</td>
+                                    <td id="descuentos">0</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="text-right">Subtotal</td>
+                                    <td id="subtotal">0</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="text-right">IVA (13%)</td>
+                                    <td id="iva">0</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5"></td>
+                                    <td class="text-right">Total</td>
+                                    <td id="total">0</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones -->
+          
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function calcularTotales() {
+                let neto = 0, descuentos = 0, subtotal = 0;
+                const ivaPorcentaje = 13; // IVA fijo al 13%
+
+                $("#detailsTable tr").each(function () {
+                    const cantidad = parseFloat($(this).find("input[name^='LineasDetalles'][name$='.Cantidad']").val()) || 0;
+                    const precio = parseFloat($(this).find("input[name^='LineasDetalles'][name$='.PrecioUnitario']").val()) || 0;
+                    const montoNeto = cantidad * precio;
+                    const montoDescuento = parseFloat($(this).find("input[name^='LineasDetalles'][name$='.MontoDescuento']").val()) || 0;
+                    const subtotalLinea = montoNeto - montoDescuento;
+                    const montoImpuesto = subtotalLinea * (ivaPorcentaje / 100);
+                    const totalLinea = subtotalLinea + montoImpuesto;
+
+                    $(this).find("input[name^='LineasDetalles'][name$='.MontoTotal']").val(montoNeto.toFixed(2));
+                    $(this).find("input[name^='LineasDetalles'][name$='.MontoDescuento']").val(montoDescuento.toFixed(2));
+                    $(this).find("input[name^='LineasDetalles'][name$='.SubTotal']").val(subtotalLinea.toFixed(2));
+                    $(this).find("input[name^='LineasDetalles'][name$='.MontoTotalLinea']").val(totalLinea.toFixed(2));
+
+                    neto += montoNeto;
+                    descuentos += montoDescuento;
+                    subtotal += subtotalLinea;
+                });
+
+                const iva = subtotal * (ivaPorcentaje / 100);
+                const total = subtotal + iva;
+
+                $("#neto").text(neto.toFixed(2));
+                $("#descuentos").text(descuentos.toFixed(2));
+                $("#subtotal").text(subtotal.toFixed(2));
+                $("#iva").text(iva.toFixed(2));
+                $("#total").text(total.toFixed(2));
+            }
+
+            $("#addRow").click(function () {
+                const rowCount = $("#detailsTable tr").length;
+                const newRow = `
+                                    <tr>
+                                        <td><input type="text" class="form-control" name="LineasDetalles[${rowCount}].Detalle"></td>
+                                        <td><input type="number" class="form-control" name="LineasDetalles[${rowCount}].PrecioUnitario" min="0"></td>
+                                        <td><input type="number" class="form-control" name="LineasDetalles[${rowCount}].MontoTotal" readonly></td>
+                                        <td><input type="number" class="form-control cantidad calcular" name="LineasDetalles[${rowCount}].Cantidad" min="1"></td>
+                                        <td><input type="number" class="form-control" name="LineasDetalles[${rowCount}].MontoDescuento" readonly></td>
+                                        <td><input type="number" class="form-control" name="LineasDetalles[${rowCount}].SubTotal" readonly></td>
+                                        <td><input type="number" class="form-control" name="LineasDetalles[${rowCount}].MontoTotalLinea" readonly></td>
+                                        <td><button type="button" class="btn btn-danger btn-sm removeRow"><i class="fas fa-times"></i></button></td>
+                                    </tr>
+                                `;
+                $("#detailsTable").append(newRow);
+            });
+
+            $(document).on("click", ".removeRow", function () {
+                $(this).closest("tr").remove();
+                calcularTotales();
+            });
+
+            $(document).on("input", ".calcular", function () {
+                calcularTotales();
+            });
+
+            // Inicializar el cálculo al cargar la página
+            calcularTotales();
+        });
+    </script>
+</body>
+</html>

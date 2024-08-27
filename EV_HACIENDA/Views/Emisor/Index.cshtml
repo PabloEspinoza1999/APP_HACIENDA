@@ -1,0 +1,87 @@
+﻿@model IEnumerable<EV_HACIENDA.Models.Emisor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h6>Emisor</h6>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary"> Mi Empresa</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Identificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CorreoElectronico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Provincia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Canton)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Distrito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Barrio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OtrasSenas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoPais)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorreoElectronico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provincia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Canton)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Distrito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Barrio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtrasSenas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoPais)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.EmisorId">Edit</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

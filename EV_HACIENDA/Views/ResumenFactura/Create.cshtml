@@ -1,0 +1,43 @@
+﻿@model EV_HACIENDA.Models.ResumenFactura
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ResumenFactura</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ConfirmCreate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TotalGravado" class="control-label"></label>
+                <input asp-for="TotalGravado" class="form-control" />
+                <span asp-validation-for="TotalGravado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalImpuesto" class="control-label"></label>
+                <input asp-for="TotalImpuesto" class="form-control" />
+                <span asp-validation-for="TotalImpuesto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalComprobante" class="control-label"></label>
+                <input asp-for="TotalComprobante" class="form-control" />
+                <span asp-validation-for="TotalComprobante" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

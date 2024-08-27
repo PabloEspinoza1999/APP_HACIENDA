@@ -1,0 +1,76 @@
+﻿@model IEnumerable<EV_HACIENDA.Models.FacturaElectronica>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h6>Lista de Facturas</h6>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Registro Factura</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().NumeroConsecutivo)</th>
+            <th>@Html.DisplayNameFor(model => model.First().FechaEmision)</th>
+            <th>Empresa</th>
+            <th>Cliente</th>
+            <th>Detalle</th>
+            <th>@Html.DisplayNameFor(model => model.First().EstadoEnvio)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+            
+                <td>@Html.DisplayFor(modelItem => item.NumeroConsecutivo)</td>
+                <td>@Html.DisplayFor(modelItem => item.FechaEmision)</td>
+                <td>@Html.DisplayFor(modelItem => item.Emisor.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Receptor.Nombre)</td>
+                <td>
+                    @{
+                        var lineasDetalles = item.LineasDetalles;
+                    }
+                   <ul>
+                        @for (int i = 0; i < lineasDetalles.Count; i++)
+                        {
+
+                            <br />
+                            <li> @Html.DisplayFor(model => lineasDetalles[i].Detalle)</li>
+                            <br />
+                        }
+
+                   </ul>
+                </td>
+                <td>
+                    @if (item.EstadoEnvio == "Aceptado")
+                    {
+                        <span style="display: inline-block; background-color: green; color: white; padding: 5px 10px; border-radius: 3px; font-weight: bold;">
+                            Aceptado
+                        </span>
+                    }
+                    else if (item.EstadoEnvio == "Rechazado")
+                    {
+                        <span style="display: inline-block; background-color: red; color: white; padding: 5px 10px; border-radius: 3px; font-weight: bold;">
+                            Rechazado
+                        </span>
+                    }
+                    else
+                    {
+                        <span style="display: inline-block; background-color: orange; color: white; padding: 5px 10px; border-radius: 3px; font-weight: bold;">
+                            Sin procesar
+                        </span>
+                    }
+                </td>
+
+                <td>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.FacturaElectronicaId">Ver factura</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

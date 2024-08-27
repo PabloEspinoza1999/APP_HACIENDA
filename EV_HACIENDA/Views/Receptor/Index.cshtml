@@ -1,0 +1,51 @@
+﻿@model IEnumerable<EV_HACIENDA.Models.Receptor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h6>Clientes</h6>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Agregar Nuevo Cliente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CorreoElectronico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Identificacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorreoElectronico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identificacion)
+            </td>
+            <td>
+                    <a class="btn btn-primary"  asp-action="Details" asp-route-id="@item.ReceptorId">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EV_HACIENDA.Models.ResumenFactura>
+
+@{
+    ViewData["Title"] = "Resumen Facturas";
+}
+
+<h1>Resumen Facturas</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ResumenFacturaId)</th>
+            <th>@Html.DisplayNameFor(model => model.TotalGravado)</th>
+            <th>@Html.DisplayNameFor(model => model.TotalImpuesto)</th>
+            <th>@Html.DisplayNameFor(model => model.TotalComprobante)</th>
+            <th>N° Factura</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ResumenFacturaId</td>
+                <td>@item.TotalGravado</td>
+                <td>@item.TotalImpuesto</td>
+                <td>@item.TotalComprobante</td>
+                <td>
+                    @if (item.FacturasElectronicas != null && item.FacturasElectronicas.Any())
+                    {
+                        <ul>
+                            @foreach (var factura in item.FacturasElectronicas)
+                            {
+                                <li>@factura.NumeroConsecutivo</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p>No hay facturas asociadas.</p>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.ResumenFacturaId">Details</a> 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

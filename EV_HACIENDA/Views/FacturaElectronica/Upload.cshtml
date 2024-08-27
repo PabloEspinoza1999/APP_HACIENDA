@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Subir Archivo XML";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Upload" enctype="multipart/form-data" id="uploadForm">
+    <div class="form-group">
+        <label for="xmlFile">Selecciona un archivo XML:</label>
+        <input type="file" name="xmlFile" class="form-control" id="xmlFile" accept=".xml" />
+    </div>
+    <button type="submit" class="btn btn-primary">Subir</button>
+</form>
+
+<div class="form-group mt-4">
+    <label for="xmlContent">Contenido del archivo XML:</label>
+    <textarea class="form-control" id="xmlContent" rows="10" readonly></textarea>
+</div>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-info">
+        @ViewBag.Message
+    </div>
+}
+
+<script>
+    document.getElementById('xmlFile').addEventListener('change', function (event) {
+        var file = event.target.files[0];
+        if (file && file.type === 'text/xml') {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('xmlContent').textContent = e.target.result;
+            };
+            reader.readAsText(file);
+        } else {
+            alert('Por favor, seleccione un archivo XML válido.');
+        }
+    });
+</script>

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\EV_HACIENDA.props" />
+</Project>

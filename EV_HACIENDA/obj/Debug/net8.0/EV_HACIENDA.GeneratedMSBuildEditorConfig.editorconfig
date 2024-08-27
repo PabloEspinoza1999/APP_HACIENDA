@@ -1,0 +1,107 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EV_HACIENDA
+build_property.RootNamespace = EV_HACIENDA
+build_property.ProjectDir = C:\Users\PC\Desktop\Back\NUEVA VERSION\EV_HACIENDA\EV_HACIENDA\EV_HACIENDA\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\PC\Desktop\Back\NUEVA VERSION\EV_HACIENDA\EV_HACIENDA\EV_HACIENDA
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/Emisor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1pc29yXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/Emisor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1pc29yXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/Emisor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1pc29yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/FacturaElectronica/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYUVsZWN0cm9uaWNhXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/FacturaElectronica/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYUVsZWN0cm9uaWNhXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/FacturaElectronica/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYUVsZWN0cm9uaWNhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/FacturaElectronica/Upload.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYUVsZWN0cm9uaWNhXFVwbG9hZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/Receptor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZXB0b3JcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/Receptor/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZXB0b3JcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/Receptor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZXB0b3JcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/Receptor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZXB0b3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/ResumenFactura/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdW1lbkZhY3R1cmFcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/ResumenFactura/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdW1lbkZhY3R1cmFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Back/NUEVA VERSION/EV_HACIENDA/EV_HACIENDA/EV_HACIENDA/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-yaytykbgq0

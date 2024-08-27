@@ -1,0 +1,126 @@
+﻿@model EV_HACIENDA.Models.FacturaElectronica
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>FacturaElectronica</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Clave)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Clave)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumeroConsecutivo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumeroConsecutivo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaEmision)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaEmision)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Emisor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Emisor.Nombre)
+            <br />
+            @Html.DisplayFor(model => model.Emisor.CorreoElectronico)
+            <br />
+            @Html.DisplayFor(model => model.Emisor.Telefono)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Receptor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Receptor.Nombre)
+            <br />
+            @Html.DisplayFor(model => model.Receptor.CorreoElectronico)
+            <br />
+            @Html.DisplayFor(model => model.Receptor.Telefono)
+        </dd>
+
+    
+        <dt class="col-sm-2">
+            <br />
+            @Html.DisplayNameFor(model => model.ResumenFactura.TotalImpuesto)
+            <br />
+            @Html.DisplayNameFor(model => model.ResumenFactura.TotalGravado)
+        </dt>
+        <dd class="col-sm-10">
+            <br />
+            @Html.DisplayFor(model => model.ResumenFactura.TotalImpuesto)
+            <br />
+            @Html.DisplayFor(model => model.ResumenFactura.TotalGravado)
+        </dd>
+        <dt class="col-sm-2">
+            Estado de Envío
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.EstadoEnvio == "Aceptado")
+            {
+                <span style="display: inline-block; background-color: green; color: white; padding: 5px 10px; border-radius: 3px; font-weight: bold;">
+                    Aceptado
+                </span>
+            }
+            else if (Model.EstadoEnvio == "Rechazado")
+            {
+                <span style="display: inline-block; background-color: red; color: white; padding: 5px 10px; border-radius: 3px; font-weight: bold;">
+                    Rechazado
+                </span>
+            }
+            else
+            {
+                <span style="display: inline-block; background-color: orange; color: white; padding: 5px 10px; border-radius: 3px; font-weight: bold;">
+                    Sin procesar
+                </span>
+            }
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <div>
+        <form asp-action="EnviarFactura" method="post">
+            <input type="hidden" name="id" value="@Model.FacturaElectronicaId" />
+            <button type="submit" class="btn btn-primary">Facturar</button>
+        </form>
+        <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+    </div>
+</div>
+
+@if (ViewBag.ResultadoEnvio != null)
+{
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Ver detalles de respuesta hacienda
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <!-- Clase modal-lg para hacer el modal más grande -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Respuesta</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @ViewBag.ResultadoEnvio
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
